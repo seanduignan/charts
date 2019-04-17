@@ -1,0 +1,150 @@
+<div class="header">
+  <a href="/" class="logo">Farm Management System</a>
+  <div class="header-right">
+    <a  href="/get-data">Cattle</a>
+    <a  href="/get-feeddata">Feed</a>
+    <a  href="/get-vetdata">Vet Bills</a>
+    <a href="/get-supplydata">Supplies</a>
+    <a href="/removeupdate">Remove/Update</a>
+    <a class = "active" href="/get-profitdata">Profits</a>
+
+  </div>
+</div>
+
+</section3>
+<section3 class="get">
+    <h3> 2019 profits</h3>
+    <div>
+
+            <article class="profit">
+                <div>vet total costs: {{ totalProfit }}</div>
+                <div>feed total costs: {{ totalProfit2 }}</div>
+                <div>supply total costs: {{ totalProfit3 }}</div>
+                <div>Cattle bought: {{ totalProfit4 }}</div>
+                <div>Cattle sold: {{ totalProfit5 }}</div>
+                <div>Total spent: {{ totalSpentAll }}</div>
+                <div>Yearly Profit: {{ totalNum }}</div>
+
+            </article>
+    </div>
+</section3>
+
+</section3>
+<section3 class="get">
+    <h3>2018 profits</h3>
+    <div>
+
+            <article class="profit">
+                <div>vet total costs: {{ totalProfit9 }}</div>
+                <div>feed total costs: {{ totalProfit29 }}</div>
+                <div>supply total costs: {{ totalProfit39 }}</div>
+                <div>Cattle bought: {{ totalProfit49 }}</div>
+                <div>Cattle sold: {{ totalProfit59 }}</div>
+                <div>Total spent: {{ totalSpentAll9 }}</div>
+                <div>Yearly Profit: {{ totalNum9 }}</div>
+
+            </article>
+    </div>
+</section3>
+
+</section3>
+<section3 class="get">
+    <h3>2017 profits</h3>
+    <div>
+
+            <article class="profit">
+                <div>vet total costs: {{ totalProfit7 }}</div>
+                <div>feed total costs: {{ totalProfit27 }}</div>
+                <div>supply total costs: {{ totalProfit37 }}</div>
+                <div>Cattle bought: {{ totalProfit47 }}</div>
+                <div>Cattle sold: {{ totalProfit57 }}</div>
+                <div>Total spent: {{ totalSpentAll7 }}</div>
+                <div>Yearly Profit: {{ totalNum7 }}</div>
+
+            </article>
+    </div>
+</section3>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>My Chart.js Chart</title>
+</head>
+<body>
+  <div class="profit">
+    <canvas id="cost"></canvas>
+  </div>
+
+  <script>
+    let myChart = document.getElementById('cost').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart = new Chart(myChart, {
+      type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+        datasets:[{
+          label:'Population',
+          data:[
+            {{totalProfit7}},
+            {{totalProfit9}},
+            {{totalNum}},
+            {{totalNum}},
+            {{totalNum}}
+
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(255, 99, 132, 0.6)'
+          ],
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Largest Cities In Massachusetts',
+          fontSize:25
+        },
+        legend:{
+          display:true,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+  </script>
+</body>
+</html>
